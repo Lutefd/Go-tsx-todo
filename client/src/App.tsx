@@ -1,12 +1,12 @@
 import './App.css'
 import useSWR from 'swr'
-import {Box} from "@mantine/core";
+import {Box, List} from "@mantine/core";
 import AddTodo from "./components/AddTodo";
 
 export interface Todo{
     id: number
     titulo: string
-    descricao: string
+    descrição: string
     feito: boolean
 }
 
@@ -17,7 +17,13 @@ function App() {
     const {data, mutate} = useSWR<Todo[]>('api/todos', fetcher)
   return (
     <Box>
-        <h1>{JSON.stringify(data)}</h1>
+        <List spacing='xs' size='sm' mb={12} center>
+        {data?.map((todo) => {
+            return (
+                <List.Item key={`todo__${todo.id}`}><h2>{todo.titulo}</h2><br/><p>{todo.descrição}</p></List.Item>
+            )
+        })}
+        </List>
         <AddTodo mutate={mutate}/>
     </Box>
   )
