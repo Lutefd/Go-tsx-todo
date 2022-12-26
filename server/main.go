@@ -8,10 +8,10 @@ import (
 )
 
 type Todo struct {
-	ID     int    `json:"id"`
-	Titulo string `json:"titulo"`
-	Feito  bool   `json:"feito"`
-	Body   string `json:"body"`
+	ID        int    `json:"id"`
+	Titulo    string `json:"titulo"`
+	Feito     bool   `json:"feito"`
+	Descricao string `json:"descrição"`
 }
 
 func main() {
