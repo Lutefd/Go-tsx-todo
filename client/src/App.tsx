@@ -11,7 +11,7 @@ function App() {
   return (
     <Box>
         <h1>{JSON.stringify(data)}</h1>
-        <AddTodo/>
+        <AddTodo mutate={mutate}/>
     </Box>
   )
 }
